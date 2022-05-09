@@ -24,15 +24,15 @@ public class PencilService
     public async Task<List<Pencil>> GetAsync() =>
         await _pencilCollection.Find(_ => true).ToListAsync();
 
-    // public async Task<Pencil?> GetAsync(string id) =>
-    //     await _pencilCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+    public async Task<Pencil?> GetAsync(string id) =>
+        await _pencilCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-    // public async Task CreateAsync(Pencil newPencil) =>
-    //     await _pencilCollection.InsertOneAsync(newPencil);
+    public async Task CreateAsync(Pencil newPencil) =>
+        await _pencilCollection.InsertOneAsync(newPencil);
 
-    // public async Task UpdateAsync(string id, Pencil updatedPencil) =>
-    //     await _pencilCollection.ReplaceOneAsync(x => x.Id == id, updatedPencil);
+    public async Task UpdateAsync(string id, Pencil updatedPencil) =>
+        await _pencilCollection.ReplaceOneAsync(x => x.Id == id, updatedPencil);
 
-    // public async Task RemoveAsync(string id) =>
-    //     await _pencilCollection.DeleteOneAsync(x => x.Id == id);
+    public async Task RemoveAsync(string id) =>
+        await _pencilCollection.DeleteOneAsync(x => x.Id == id);
 }
