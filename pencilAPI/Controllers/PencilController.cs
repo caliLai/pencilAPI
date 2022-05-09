@@ -23,56 +23,55 @@ public class PencilController : ControllerBase
         return Ok(result);
 	}
 
-    // [HttpGet("{id:length(24)}")]
-    // public async Task<ActionResult<Book>> Get(string id)
-    // {
-    //     var book = await _booksService.GetAsync(id);
+    [HttpGet("{id:length(24)}")]
+    public async Task<ActionResult<Pencil>> Get(string id)
+    {
+        var pencil = await _pencilService.GetAsync(id);
 
-    //     if (book is null)
-    //     {
-    //         return NotFound();
-    //     }
+        if (pencil is null) {
+            return NotFound();
+        }
 
-    //     return book;
-    // }
+        return pencil;
+    }
 
-    // [HttpPost]
-    // public async Task<IActionResult> Post(Book newBook)
-    // {
-    //     await _booksService.CreateAsync(newBook);
+    [HttpPost]
+    public async Task<IActionResult> Post(Pencil newPencil)
+    {
+        await _pencilService.CreateAsync(newPencil);
 
-    //     return CreatedAtAction(nameof(Get), new { id = newBook.Id }, newBook);
-    // }
+        return CreatedAtAction(nameof(Get), new { id = newPencil.Id }, newPencil);
+    }
 
-    // [HttpPut("{id:length(24)}")]
-    // public async Task<IActionResult> Update(string id, Book updatedBook)
-    // {
-    //     var book = await _booksService.GetAsync(id);
+    [HttpPut("{id:length(24)}")]
+    public async Task<IActionResult> Update(string id, Pencil updatedPencil)
+    {
+        var pencil = await _pencilService.GetAsync(id);
 
-    //     if (book is null)
-    //     {
-    //         return NotFound();
-    //     }
+        if (pencil is null)
+        {
+            return NotFound();
+        }
 
-    //     updatedBook.Id = book.Id;
+        updatedPencil.Id = pencil.Id;
 
-    //     await _booksService.UpdateAsync(id, updatedBook);
+        await _pencilService.UpdateAsync(id, updatedPencil);
 
-    //     return NoContent();
-    // }
+        return NoContent();
+    }
 
-    // [HttpDelete("{id:length(24)}")]
-    // public async Task<IActionResult> Delete(string id)
-    // {
-    //     var book = await _booksService.GetAsync(id);
+    [HttpDelete("{id:length(24)}")]
+    public async Task<IActionResult> Delete(string id)
+    {
+        var pencil = await _pencilService.GetAsync(id);
 
-    //     if (book is null)
-    //     {
-    //         return NotFound();
-    //     }
+        if (pencil is null)
+        {
+            return NotFound();
+        }
 
-    //     await _booksService.RemoveAsync(id);
+        await _pencilService.RemoveAsync(id);
 
-    //     return NoContent();
-    // }
+        return NoContent();
+    }
 }

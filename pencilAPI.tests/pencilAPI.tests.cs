@@ -3,8 +3,6 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Threading.Tasks;
-using Moq;
-using pencilAPI.tests.MockData;
 using pencilAPI.Services;
 using pencilAPI.Controllers;
 
